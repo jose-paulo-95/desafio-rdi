@@ -17,7 +17,7 @@ Este projeto contém testes automatizados desenvolvidos com Cypress para validar
 1. Clone o repositório:
 
 ```bash
-git clone [URL_DO_REPOSITÓRIO]
+git clone https://github.com/jose-paulo-95/desafio-rdi
 ```
 
 2. Instale as dependências:
