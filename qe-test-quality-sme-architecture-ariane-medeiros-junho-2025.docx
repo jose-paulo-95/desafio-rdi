@@ -1,0 +1,38 @@
+Knowledge Evaluation for QE
+
+Name: José Paulo Luiz Junior   Date: 04/06/2025
+
+●	The candidate should not have any device with internet access (e.g. mobile phones) when executing the test. 
+●	Write your answers in English.
+●	Write down assumptions whenever necessary for better understanding. 
+
+Good luck.
+
+1) Cover letter
+
+Write an introduction letter (cover letter) in English describing your goals and pointing out your strongest abilities. Keep it simple and objective.
+
+2) Please, pay attention to the following system components of a restaurant software solution.
+
+Point of Sale (POS)
+It handles the order taking and tendering processes. The application user interface shows all screens with products and specialty function buttons. These transactions are sent to Kitchen Monitors so that they can be managed from the kitchen and expedition sides.
+Kitchen Monitors
+Monitors display several different colors, images, and icons that help the crew visualize the order and assembly of products. These system changes increase the speed of service and employee productivity.
+Customer ordering flow
+POS -> Kitchen Monitors
+Scenario:
+"Customer orders a meal. Crew registers meal. It is prepared and delivered to the customer"
+Use the system components description to answer question-based on given scenario.
+Please, create a BDD based on the scenario given above.
+Please, specify what should be validated on automation.
+Write automation pseudo-code.
+If it was not possible to automate a component using any available test tool, how would you proceed?
+
+
+
+3) Automation test
+
+Design relevant test scenarios to ensure the proper functionality of a login page. Develop automated tests based on these scenarios and upload the project to a Git repository.
+
+Target URL:
+https://the-internet.herokuapp.com/login
