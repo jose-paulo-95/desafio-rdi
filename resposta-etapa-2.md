@@ -1,252 +1,266 @@
-# Resposta Etapa 2 - Sistema de Restaurante
+# Step 2 Response - Restaurant System
 
-# Perguntas para o PO - Sistema de Restaurante
+# Questions for the PO - Restaurant System
 
-Antes de criar os cenários de teste, provavelmente durante a planning realizaria essas perguntas para o PO do time para melhor entendimento da demanda
+Before creating test scenarios, I would likely ask these questions to the team's PO during planning for better understanding of the requirements
 
-# Sobre o Ponto de Venda (POS):
-   - Quais são os campos obrigatórios para registrar um pedido no POS?
-   - Como é feita a validação dos dados do pedido antes do envio para a cozinha?
-   - Existe algum fluxo de confirmação antes do envio do pedido para a cozinha?
-   - Como são tratados pedidos com modificações (ex: sem cebola, bem passado)?
-   - Como são tratados erros de digitação ou pedidos incorretos?
+# About the Point of Sale (POS):
 
-# Sobre os Monitores da Cozinha:
-   - Quais são os critérios para a exibição das cores e ícones nos monitores?
-         - Quais são as cores que serão utilizadas ? 
-         - Quais os ícones que serão utilizados ?
-   - Como é feita a confirmação de recebimento do pedido na cozinha?
-   - Existe algum sistema de notificação quando um novo pedido chega?
-   - Como é feito o controle de tempo entre o recebimento e a preparação do pedido?
-# Sobre o Fluxo de Pedidos:
-   - Qual é o tempo esperado entre o registro do pedido e sua entrega ao cliente?
-   - Como é feita a confirmação de que o pedido foi entregue ao cliente?
-   - Como são tratados pedidos para viagem/entrega?
+- What are the mandatory fields for registering an order in the POS?
+- How is order data validated before sending to the kitchen?
+- Is there any confirmation flow before sending the order to the kitchen?
+- How are modified orders handled (e.g., no onions, well done)?
+- How are typos or incorrect orders handled?
 
+# About Kitchen Monitors:
 
+- What are the criteria for displaying colors and icons on the monitors? - What colors will be used? - What icons will be used?
+- How is order receipt confirmation done in the kitchen?
+- Is there any notification system when a new order arrives?
+- How is the time control between order receipt and preparation handled?
+
+# About Order Flow:
+
+- What is the expected time between order registration and delivery to the customer?
+- How is order delivery confirmation to the customer done?
+- How are takeout/delivery orders handled?
 
 ## BDD (Behavior Driven Development)
 
+### 1. POS Validations
 
+Feature: POS System Validation
+As a restaurant attendant
+I want to validate the POS system functionality
+To ensure orders are registered correctly
 
-### 1. Validações do POS
+Scenario: Check POS system accessibility
+Given the attendant is on the initial screen
+When they try to access the POS system
+Then the system should be accessible and load correctly
 
-Feature: Validação do Sistema POS
-  Como um atendente do restaurante
-  Eu quero validar o funcionamento do sistema POS
-  Para garantir que os pedidos sejam registrados corretamente
+Scenario: Validate product listing
+Given the POS system is accessible
+When the attendant views the product list
+Then all products should be listed correctly
+And prices should be updated
 
-  Scenario: Verificar acessibilidade do sistema POS 
-    Given que o atendente está na tela inicial
-    When ele tenta acessar o sistema POS
-    Then o sistema deve estar acessível e carregar corretamente
+Scenario: Successfully register order
+Given the attendant is in the POS system
+When they select order items
+And click the finish order button
+Then the order should be registered successfully
+And a confirmation should be displayed
 
-  Scenario: Validar listagem de produtos
-    Given que o sistema POS está acessível
-    When o atendente visualiza a lista de produtos
-    Then todos os produtos devem estar listados corretamente
-    And os preços devem estar atualizados
+Scenario: Validate product prices
+Given the POS system is accessible
+When the attendant checks product prices
+Then all prices should be correct
+And updated according to current table
 
-  Scenario: Registrar pedido com sucesso
-    Given que o atendente está no sistema POS
-    When ele seleciona os itens do pedido
-    And clica no botão de finalizar pedido
-    Then o pedido deve ser registrado com sucesso
-    And uma confirmação deve ser exibida
+Scenario: Test finish order button
+Given the attendant is in the POS system
+When they try to finish an order
+Then the button should be working correctly
+And should process the order properly
 
-  Scenario: Validar preços dos produtos
-    Given que o sistema POS está acessível
-    When o atendente verifica os preços dos produtos
-    Then todos os preços devem estar corretos
-    And atualizados conforme tabela vigente
+### 2. Kitchen Monitor Validations
 
-  Scenario: Testar botão de finalizar pedido
-    Given que o atendente está no sistema POS
-    When ele tenta finalizar um pedido
-    Then o botão deve estar funcionando corretamente
-    And deve processar o pedido adequadamente
+Feature: Kitchen Monitor Validation
+As a kitchen staff member
+I want to validate the monitor functionality
+To ensure orders are viewed correctly
 
-### 2. Validações dos Monitores da Cozinha
+Scenario: View new order on monitors
+Given an order was registered in the POS
+When the order is transmitted to the monitors
+Then the order should appear on kitchen monitors
+And colors and icons should be correct
 
-Feature: Validação dos Monitores da Cozinha
-  Como um funcionário da cozinha
-  Eu quero validar o funcionamento dos monitores
-  Para garantir que os pedidos sejam visualizados corretamente
+Scenario: Order status update
+Given an order is visible on monitors
+When the order status is changed
+Then the update should be reflected immediately
+And information should be complete
 
-  Scenario: Visualizar novo pedido nos monitores
-    Given que um pedido foi registrado no POS
-    When o pedido é transmitido para os monitores
-    Then o pedido deve aparecer nos monitores da cozinha
-    And as cores e ícones devem estar corretos
+Scenario: Validate color and icon display
+Given an order is on the monitors
+When the order is displayed
+Then colors should follow the standard
+And icons should correctly represent the order type
 
-  Scenario: Atualização de status do pedido
-    Given que um pedido está visível nos monitores
-    When o status do pedido é alterado
-    Then a atualização deve ser refletida imediatamente
-    And as informações devem estar completas
+Scenario: Check complete order information
+Given an order is on the monitors
+When the order is viewed
+Then all information should be present
+And organized clearly and legibly
 
-  Scenario: Validar exibição de cores e ícones
-    Given que um pedido está nos monitores
-    When o pedido é exibido
-    Then as cores devem estar de acordo com o padrão
-    And os ícones devem representar corretamente o tipo de pedido
+### 3. Complete Flow Validations
 
-  Scenario: Verificar informações completas do pedido
-    Given que um pedido está nos monitores
-    When o pedido é visualizado
-    Then todas as informações devem estar presentes
-    And organizadas de forma clara e legível
+Feature: Complete Order Flow Validation
+As a restaurant manager
+I want to validate the complete order flow
+To ensure process efficiency
 
-### 3. Validações do Fluxo Completo
+Scenario: Customer successfully places meal order
+Given the customer is in the restaurant
+When the customer places a meal order
+And the team registers the order in the POS system
+Then the order should appear on kitchen monitors
+And the kitchen team should prepare the meal
+And the meal should be delivered to the customer
 
-Feature: Validação do Fluxo Completo de Pedidos
-  Como um gerente do restaurante
-  Eu quero validar o fluxo completo de pedidos
-  Para garantir a eficiência do processo
+Scenario: Status update in all stages
+Given an order is in progress
+When status is changed at any stage
+Then all interfaces should be updated
+And change history should be maintained
 
-   Scenario: Cliente faz pedido de refeição com sucesso
-    Given que o cliente está no restaurante
-    When o cliente faz um pedido de refeição
-    And a equipe registra o pedido no sistema POS
-    Then o pedido deve aparecer nos monitores da cozinha
-    And a equipe da cozinha deve preparar a refeição
-    And a refeição deve ser entregue ao cliente
+Scenario: Validate processing time
+Given an order was registered
+When the order is processed
+Then total time should be within expected
+And should follow established pattern
 
+Scenario: Check change history
+Given an order is in progress
+When status changes are made
+Then history should be recorded
+And all changes should be viewable
 
-  Scenario: Atualização de status em todas as etapas
-    Given que um pedido está em andamento
-    When o status é alterado em qualquer etapa
-    Then todas as interfaces devem ser atualizadas
-    And o histórico de alterações deve ser mantido
+## Automation Scenarios
 
-  Scenario: Validar tempo de processamento
-    Given que um pedido foi registrado
-    When o pedido é processado
-    Then o tempo total deve estar dentro do esperado
-    And deve seguir o padrão estabelecido
+1. **Automation Scenarios**
 
-  Scenario: Verificar histórico de alterações
-    Given que um pedido está em andamento
-    When são feitas alterações no status
-    Then o histórico deve ser registrado
-    And deve ser possível visualizar todas as mudanças
+   - Scenarios to be automated:
 
-## Cenários para Automação
+     1. Customer successfully places meal order
+     2. Validate product listing
+     3. Successfully register order
+     4. Validate product prices - API only
+     5. Test finish order button
+     6. View new order on monitors
+     7. Order status update
+     8. Check complete order information
 
-1. **Cenários para Automação**
-   - Cenários que serão automatizados:
-     1. Cliente faz pedido de refeição com sucesso
-     2. Validar listagem de produtos
-     3. Registrar pedido com sucesso
-     4. Validar preços dos produtos - Somente API
-     5. Testar botão de finalizar pedido
-     6. Visualizar novo pedido nos monitores
-     7. Atualização de status do pedido
-     8. Verificar informações completas do pedido
+   - Manual scenarios:
 
-   - Cenários que serão manuais:
-     1. Verificar acessibilidade do sistema POS
-     2. Testes de usabilidade e experiência do usuário
-     3. Validar exibição de cores e ícones
+     1. Check POS system accessibility
+     2. Usability and user experience tests
+     3. Validate color and icon display
 
-   - Cenários de Performance
-     1. Validações de tempo e performance
+   - Performance Scenarios
+     1. Time and performance validations
 
-2. **Estratégia de Automação**
-   - Utilizar Cypress para automação web
-   - Implementar testes de API para validações de backend
-   - Criar relatórios automatizados de execução
-   - Implementar CI/CD para execução contínua
+2. **Automation Strategy**
+   - Use Cypress for web automation
+   - Implement API tests for backend validations
+   - Create automated execution reports
+   - Implement CI/CD for continuous execution
 
 ## Pseudo-código da Automação (Cypress)
 
 ```javascript
-describe("Sistema de Restaurante", () => {
+describe("Restaurant System", () => {
   beforeEach(() => {
-    // Setup inicial
     cy.visit("/pos");
-    cy.intercept("POST", "/api/pedidos").as("registrarPedido");
-    cy.intercept("GET", "/api/monitores-cozinha/*").as("verificarPedido");
+    cy.intercept("POST", "/api/orders").as("registerOrder");
+    cy.intercept("GET", "/api/kitchen-monitors/*").as("checkOrder");
   });
 
-  it("deve processar um pedido completo com sucesso", () => {
-    // Dados do pedido
-    const pedido = {
-      id: "123",
-      itens: ["Prato Principal", "Bebida"],
-      mesa: "5",
-      status: "novo",
-    };
+  it("Customer successfully places meal order", () => {
 
-    // Teste do POS
-    cy.get('[data-testid="lista-produtos"]').should("be.visible");
-    cy.get('[data-testid="produto-prato-principal"]').click();
-    cy.get('[data-testid="produto-bebida"]').click();
-    cy.get('[data-testid="botao-finalizar-pedido"]').click();
+    // POS test
+    cy.get('[data-testid="product-list"]').should("be.visible");
+    cy.get('[data-testid="food"]').click();
+    cy.get('[data-testid="drink"]').click();
+    cy.intercept('POST', '/api/orders', (req) => {
+      const order = {
+        id: "123",
+        items: [
+          {
+            name: "X-Burger",
+            quantity: 1,
+            price: 25.90,
+          },
+          {
+            name: "Coke",
+            quantity: 1,
+            price: 8.90
+          }
+        ],
+        total: 34.80,
+        status: "new",
+        timestamp: "2024-03-20T15:30:00Z"
+      };
+      cy.wrap(orderData).as('orderData');
+    }).as('registerOrder');
+    
+    cy.get('[data-testid="finish-order-button"]').click();
 
-    // Verificar registro do pedido
-    cy.wait("@registrarPedido").its("response.statusCode").should("eq", 200);
-    cy.get('[data-testid="status-pedido"]').should("contain", "registrado");
+    // Verify order registration
+    cy.wait("@registerOrder").its("response.statusCode").should("eq", 200);
+    cy.get('[data-testid="order-status"]').should("contain", "registered");
 
-    // Verificar transmissão para monitores
-    cy.visit("/monitores-cozinha");
-    cy.wait("@verificarPedido").its("response.statusCode").should("eq", 200);
-    cy.get(`[data-testid="pedido-${pedido.id}"]`).should("be.visible");
-    cy.get(`[data-testid="pedido-${pedido.id}"]`).should(
+    // Verify transmission to monitors
+    cy.visit("/kitchen-monitors");
+    cy.wait("@checkOrder").its("response.statusCode").should("eq", 200);
+    cy.get(`[data-testid="order-${order.id}"]`).should("be.visible");
+    cy.get(`[data-testid="order-${order.id}"]`).should(
       "have.class",
-      "novo-pedido"
+      "new-order"
     );
 
-    // Simular preparo
-    cy.get(`[data-testid="pedido-${pedido.id}"]`)
-      .find('[data-testid="botao-iniciar-preparo"]')
+    // Simulate preparation
+    cy.get(`[data-testid="order-${order.id}"]`)
+      .find('[data-testid="start-preparation-button"]')
       .click();
-    cy.get(`[data-testid="pedido-${pedido.id}"]`).should(
+    cy.get(`[data-testid="order-${order.id}"]`).should(
       "have.class",
-      "em-preparo"
+      "in-preparation"
     );
 
-    // Simular entrega
-    cy.get(`[data-testid="pedido-${pedido.id}"]`)
-      .find('[data-testid="botao-finalizar-preparo"]')
+    // Simulate delivery
+    cy.get(`[data-testid="order-${order.id}"]`)
+      .find('[data-testid="finish-preparation-button"]')
       .click();
-    cy.get(`[data-testid="pedido-${pedido.id}"]`).should(
+    cy.get(`[data-testid="order-${order.id}"]`).should(
       "have.class",
-      "entregue"
+      "delivered"
     );
   });
 });
 ```
 
-## Resposta para Componentes Não Automatizáveis
+## Response for Non-Automatable Components
 
-Se não fosse possível automatizar algum componente do sistema, eu procederia da seguinte forma:
+If it were not possible to automate some system component, I would proceed as follows:
 
-1. **Documentação Detalhada:**
+1. **Detailed Documentation:**
 
-   - Criar documentação detalhada dos testes manuais necessários
-   - Descrever os passos de teste, dados de entrada e resultados esperados
-   - Incluir screenshots e vídeos quando relevante
+   - Create detailed documentation of required manual tests
+   - Describe test steps, input data, and expected results
+   - Include screenshots and videos when relevant
 
-2. **Testes Exploratórios:**
+2. **Exploratory Testing:**
 
-   - Realizar sessões de testes exploratórios estruturados
-   - Documentar os cenários testados e resultados encontrados
-   - Focar em áreas de maior risco
+   - Conduct structured exploratory testing sessions
+   - Document tested scenarios and findings
+   - Focus on high-risk areas
 
-3. **Testes de Regressão Manual:**
+3. **Manual Regression Testing:**
 
-   - Criar uma suíte de testes de regressão manual
-   - Priorizar os cenários mais críticos
-   - Estabelecer uma frequência de execução
+   - Create a manual regression test suite
+   - Prioritize critical scenarios
+   - Establish execution frequency
 
-4. **Monitoramento:**
+4. **Monitoring:**
 
-   - Implementar logs detalhados no sistema
-   - Criar dashboards para monitoramento
-   - Estabelecer alertas para comportamentos inesperados
+   - Implement detailed system logs
+   - Create monitoring dashboards
+   - Establish alerts for unexpected behaviors
 
-5. **Integração com Testes Automatizados:**
-   - Integrar os testes manuais com os automatizados
-   - Criar pontos de verificação onde os testes manuais e automatizados se encontram
-   - Manter um registro claro do que é automatizado e o que é manual
+5. **Integration with Automated Tests:**
+   - Integrate manual tests with automated ones
+   - Create checkpoints where manual and automated tests meet
+   - Maintain clear records of what is automated and what is manual

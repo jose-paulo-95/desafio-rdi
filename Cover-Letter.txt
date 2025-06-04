@@ -1,0 +1,5 @@
+My name is Jose Paulo Luiz Junior, and I’m a QA Analyst with strong experience in software quality assurance, specializing in test automation using Cypress, Postman, and BDD frameworks. I’ve been leading efforts in API, web, and mobile testing, with a hands-on approach to building reliable and scalable automated test solutions.
+
+Currently, I’m responsible for driving automation strategies in agile teams using JavaScript, Cypress.io, and Azure DevOps, along with test planning and execution through tools like Zephyr, Jira, and Browserstack. I’m skilled in writing and executing detailed test cases, analyzing requirements, and reporting issues effectively to ensure product reliability and user satisfaction.
+
+My technical background also includes working with SQL/PostgreSQL, Git for version control, and CI/CD tools such as Docker and BuddyWorks. I hold certifications in Project Management and Agile methodologies, which support my ability to bridge quality assurance with product goals and delivery timelines.
