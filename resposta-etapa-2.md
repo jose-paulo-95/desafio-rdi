@@ -159,7 +159,7 @@ And all changes should be viewable
    - Create automated execution reports
    - Implement CI/CD for continuous execution
 
-## Pseudo-código da Automação (Cypress)
+##  Pseudo-code (Cypress)
 
 ```javascript
 describe("Restaurant System", () => {
