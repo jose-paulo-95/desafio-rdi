@@ -66,6 +66,7 @@ And should process the order properly
 
 ### 2. Kitchen Monitor Validations
 
+```guerkin
 Feature: Kitchen Monitor Validation
 As a kitchen staff member
 I want to validate the monitor functionality
@@ -94,7 +95,7 @@ Given an order is on the monitors
 When the order is viewed
 Then all information should be present
 And organized clearly and legibly
-
+```
 ### 3. Complete Flow Validations
 
 Feature: Complete Order Flow Validation
