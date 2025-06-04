@@ -78,12 +78,6 @@ When the order is transmitted to the monitors
 Then the order should appear on kitchen monitors
 And colors and icons should be correct
 
-Scenario: Order status update
-Given an order is visible on monitors
-When the order status is changed
-Then the update should be reflected immediately
-And information should be complete
-
 Scenario: Validate color and icon display
 Given an order is on the monitors
 When the order is displayed
@@ -141,7 +135,7 @@ And all changes should be viewable
      4. Validate product prices - API only
      5. Test finish order button
      6. View new order on monitors
-     7. Order status update
+     7. Status update in all stages
      8. Check complete order information
 
    - Manual scenarios:
