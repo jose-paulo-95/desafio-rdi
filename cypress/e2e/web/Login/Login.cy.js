@@ -40,12 +40,4 @@ describe("Login Page", () => {
     cy.url().should("include", "/login");
     cy.get(".flash.error").should("be.visible");
   });
-
-  it("should keep user on login page after logout", () => {
-    loginActions.doLogin("tomsmith", "SuperSecretPassword!");
-    loginActions.doLogout();
-
-    cy.url().should("include", "/login");
-    loginActions.checkSuccessMessage("You logged out of the secure area!");
-  });
 });

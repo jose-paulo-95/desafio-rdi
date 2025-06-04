@@ -1,76 +1,62 @@
-# Desafio RDI - Testes Automatizados
+# RDI Challenge - Automated Tests
 
-Este projeto contém testes automatizados desenvolvidos com Cypress para validar funcionalidades de login em uma aplicação web.
+This project contains automated tests developed with Cypress to validate login functionalities in a web application.
 
-## 🚀 Tecnologias Utilizadas
+## 🚀 Technologies Used
 
-- [Cypress](https://www.cypress.io/) - Framework de testes end-to-end
+- [Cypress](https://www.cypress.io/) - End-to-end testing framework
 - JavaScript
 
-## 📋 Pré-requisitos
+## 📋 Prerequisites
 
-- Node.js (versão LTS recomendada)
-- npm ou yarn
+- Node.js (LTS version recommended)
+- npm
 
-## 🔧 Instalação
+## 🔧 Installation
 
-1. Clone o repositório:
+1. Clone the repository:
 
 ```bash
 git clone https://github.com/jose-paulo-95/desafio-rdi
 ```
 
-2. Instale as dependências:
+2. Install dependencies:
 
 ```bash
 npm install
-# ou
-yarn install
+
 ```
 
-## 🧪 Executando os Testes
+## 🧪 Running the Tests
 
-Para executar os testes em modo interativo:
+To run the tests in interactive mode:
 
 ```bash
-npx cypress open
+npm run test:open
 ```
 
-Para executar os testes em modo headless:
+To run the tests in headless mode:
 
 ```bash
-npx cypress run
+npm run test:run
 ```
 
-## 📁 Estrutura do Projeto
+## 📁 Project structure
 
 ```
 cypress/
   ├── e2e/
-  │   └── web/
-  │       └── Login/
-  │           ├── Login.cy.js
-  │           └── loginActions.js
+  │ └── web/
+  │ └── Login/
+  │ ├── Login.cy.js
+  │ └── loginActions.js
 ```
 
-## 📝 Casos de Teste
+## 📝 Test cases
 
-O projeto inclui os seguintes cenários de teste para a funcionalidade de login:
+The project includes the following test scenarios for the login functionality:
 
-- Login com credenciais válidas
-- Tentativa de login com credenciais inválidas
-- Validação de campos obrigatórios
-- Validação de formato de email
-- Fluxo de logout
-
-## 🤝 Contribuindo
-
-1. Faça um Fork do projeto
-2. Crie uma Branch para sua Feature (`git checkout -b feature/AmazingFeature`)
-3. Faça o Commit das suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. Faça o Push para a Branch (`git push origin feature/AmazingFeature`)
-5. Abra um Pull Request
-
-## 📄 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+- Login with valid credentials
+- Login attempt with invalid credentials
+- Validation of required fields
+- Email format validation
