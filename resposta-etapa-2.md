@@ -28,7 +28,7 @@ Before creating test scenarios, I would likely ask these questions to the team's
 ## BDD (Behavior Driven Development)
 
 ### 1. POS Validations
-
+```guerkin
 Feature: POS System Validation
 As a restaurant attendant
 I want to validate the POS system functionality
@@ -63,7 +63,7 @@ Given the attendant is in the POS system
 When they try to finish an order
 Then the button should be working correctly
 And should process the order properly
-
+```
 ### 2. Kitchen Monitor Validations
 
 ```guerkin
@@ -97,7 +97,7 @@ Then all information should be present
 And organized clearly and legibly
 ```
 ### 3. Complete Flow Validations
-
+```guerkin
 Feature: Complete Order Flow Validation
 As a restaurant manager
 I want to validate the complete order flow
@@ -128,7 +128,7 @@ Given an order is in progress
 When status changes are made
 Then history should be recorded
 And all changes should be viewable
-
+```
 ## Automation Scenarios
 
 1. **Automation Scenarios**
